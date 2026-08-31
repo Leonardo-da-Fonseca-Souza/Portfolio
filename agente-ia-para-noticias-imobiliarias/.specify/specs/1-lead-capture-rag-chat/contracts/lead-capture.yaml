@@ -1,0 +1,59 @@
+openapi: 3.0.3
+info:
+  title: ImoveisAI - Lead Capture API
+  version: 1.0.0
+  description: API contract for Capturing Leads on the Landing Page.
+paths:
+  /api/v1/lead:
+    post:
+      summary: Capture visitor's contact lead
+      operationId: captureLead
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LeadInput'
+      responses:
+        '200':
+          description: Lead captured or updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Lead captured successfully"
+                  lead:
+                    $ref: '#/components/schemas/Lead'
+        '422':
+          description: Validation error
+components:
+  schemas:
+    LeadInput:
+      type: object
+      required:
+        - nome
+        - email
+      properties:
+        nome:
+          type: string
+          example: "João Silva"
+        email:
+          type: string
+          format: email
+          example: "joao.silva@exemplo.com"
+    Lead:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        nome:
+          type: string
+          example: "João Silva"
+        email:
+          type: string
+          format: email
+          example: "joao.silva@exemplo.com"

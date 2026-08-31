@@ -1,0 +1,43 @@
+# Walkthrough - Implementação & Validação do Design-to-Code Bridge (Landing Page & Lead Capture)
+
+Este documento resume a implementação da Landing Page e sua respectiva validação end-to-end automatizada em ambiente local de teste.
+
+## 🛠️ Modificações Realizadas
+
+### 1. Backend (FastAPI + Pydantic v2)
+- **Modelo de Dados:** Adicionado o esquema de validação `LeadCapture` no [main.py](file:///c:/Users/Usu%C3%A1rio/Documents/antigravity/agente-ia-para-noticias-imobiliarias/backend/main.py) com validação estrita.
+- **Endpoint:** Rota `POST /api/v1/lead` para persistir leads em memória e expor ao console.
+
+### 2. Frontend (React 18 + Tailwind CSS)
+- **Componentes:** Landing Page criada a partir dos design tokens e dividida em seções modulares:
+  - [HeroSection.jsx](file:///c:/Users/Usu%C3%A1rio/Documents/antigravity/agente-ia-para-noticias-imobiliarias/frontend/src/components/sections/HeroSection.jsx)
+  - [FeatureGrid.jsx](file:///c:/Users/Usu%C3%A1rio/Documents/antigravity/agente-ia-para-noticias-imobiliarias/frontend/src/components/sections/FeatureGrid.jsx)
+  - [StatsSection.jsx](file:///c:/Users/Usu%C3%A1rio/Documents/antigravity/agente-ia-para-noticias-imobiliarias/frontend/src/components/sections/StatsSection.jsx)
+  - [LeadForm.jsx](file:///c:/Users/Usu%C3%A1rio/Documents/antigravity/agente-ia-para-noticias-imobiliarias/frontend/src/components/sections/LeadForm.jsx)
+- **Painel Administrativo:** Integrado com toggle suave no [App.jsx](file:///c:/Users/Usu%C3%A1rio/Documents/antigravity/agente-ia-para-noticias-imobiliarias/frontend/src/App.jsx).
+
+---
+
+## 🧪 Validação End-to-End no Navegador (Jetski)
+
+Executamos o agente de testes no navegador para simular a interação completa do usuário:
+
+1. **Acesso & Renderização:** O agente navegou para `http://localhost:5173`, verificando a integridade dos blocos visuais e a responsividade.
+2. **Submissão do Formulário:** Preencheu os dados de lead corporativo e enviou com sucesso.
+3. **Validação de Sucesso:** Verificado o redirecionamento de estado para a tela "Cadastro Confirmado!" (Retorno HTTP 200 OK).
+4. **Erros no Console:** Zero erros ou exceções no console do navegador.
+
+### Evidências Visuais da Validação
+
+````carousel
+![Hero Page](/C:/Users/Usuário/.gemini/antigravity-ide/brain/b590c5e1-d8d1-4fa6-b489-1080352eb947/hero_page_1787773600306.png)
+<!-- slide -->
+![Lead Form Vazio](/C:/Users/Usuário/.gemini/antigravity-ide/brain/b590c5e1-d8d1-4fa6-b489-1080352eb947/lead_form_before_1787773618162.png)
+<!-- slide -->
+![Lead Form Preenchido](/C:/Users/Usuário/.gemini/antigravity-ide/brain/b590c5e1-d8d1-4fa6-b489-1080352eb947/lead_form_filled_1787773639318.png)
+<!-- slide -->
+![Sucesso Cadastro](/C:/Users/Usuário/.gemini/antigravity-ide/brain/b590c5e1-d8d1-4fa6-b489-1080352eb947/lead_form_success_1787773659143.png)
+````
+
+### Gravação da Sessão do Navegador
+![Gravação de Validação Jetski](/C:/Users/Usuário/.gemini/antigravity-ide/brain/b590c5e1-d8d1-4fa6-b489-1080352eb947/verify_landing_page_1787773591571.webp)

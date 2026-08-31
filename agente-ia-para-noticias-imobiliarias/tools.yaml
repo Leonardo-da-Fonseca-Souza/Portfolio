@@ -1,0 +1,43 @@
+# 1. Configuração da Conexão com o Banco de Dados (Source)
+kind: source
+name: postgres_db
+type: postgres
+host: ${DB_HOST}
+port: ${DB_PORT}
+database: ${DB_NAME}
+user: ${DB_USER}
+password: ${DB_PASSWORD}
+---
+# 2. Configuração do Modelo de Embeddings do Gemini (RAG)
+kind: embeddingModel
+name: text_embedder
+type: gemini
+model: gemini-embedding-001
+dimension: 768
+apiKey: ${GEMINI_API_KEY}
+---
+# 3. Ferramenta para Salvar Leads de Forma Declarativa
+kind: tool
+name: insert_lead
+type: postgres-sql
+description: "Insere um lead interessado em imóveis ou notícias no banco de dados."
+parameters:
+  - name: nome
+    type: string
+    description: "Nome completo do interessado"
+  - name: email
+    type: string
+    description: "Endereço de e-mail de contato"
+query: "INSERT INTO leads (nome, email) VALUES ($1, $2) ON CONFLICT (email) DO UPDATE SET nome = EXCLUDED.nome;"
+---
+# 4. Ferramenta para Busca Semântica (RAG) de Notícias e Imóveis
+kind: tool
+name: search_properties_vector
+type: postgres-sql
+description: "Realiza busca vetorial baseada no interesse ou dúvida do usuário."
+parameters:
+  - name: query_text
+    type: string
+    description: "Texto ou dúvida em linguagem natural digitado pelo usuário"
+    embeddedBy: text_embedder  # Auto-vetoriza o texto usando o modelo configurado acima!
+query: "SELECT id, titulo, conteudo FROM noticias ORDER BY vetor_embedding <=> $1 LIMIT 3;"

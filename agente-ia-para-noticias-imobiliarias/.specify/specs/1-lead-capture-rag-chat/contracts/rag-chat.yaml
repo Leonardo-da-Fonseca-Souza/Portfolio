@@ -1,0 +1,58 @@
+openapi: 3.0.3
+info:
+  title: ImoveisAI - RAG Chat API
+  version: 1.0.0
+  description: API contract for interacting with the IA Real Estate RAG Agent.
+paths:
+  /api/v1/chat:
+    post:
+      summary: Send message to the RAG Agent
+      operationId: sendChatMessage
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatMessageRequest'
+      responses:
+        '200':
+          description: Agent response generated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatMessageResponse'
+components:
+  schemas:
+    ChatMessageRequest:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: string
+          example: "Como está a captação do fundo HGLG11?"
+        session_id:
+          type: string
+          example: "sess_12345"
+    ChatMessageResponse:
+      type: object
+      properties:
+        response:
+          type: string
+          example: "O fundo HGLG11 registrou uma captação recorde de R$ 1,2 bi em novos lotes de cotas recentes."
+        session_id:
+          type: string
+          example: "sess_12345"
+        sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/SourceReference'
+    SourceReference:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 12
+        titulo:
+          type: string
+          example: "HGLG11 registra captação recorde de R$ 1,2 bi"

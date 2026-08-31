@@ -1,0 +1,58 @@
+# Google Cloud keys and credentials
+*.json
+*service-account*.json
+client_secrets*.json
+.gcp/
+adc.json
+
+# Environment variables
+*.env
+.env.*
+!.env.example
+
+# Python virtual environments and caches
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# Frontend dependencies and builds
+node_modules/
+dist/
+dist-ssr/
+build/
+.next/
+out/
+.svelte-kit/
+.nuxt/
+.cache/
+
+# OS and IDE temporary files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+.gcpignore
+
+# Local databases and logs
+*.sqlite3
+*.db
+*.log
+logs/
+
+# Pastas chave
+.antigravity/
+.agents/
