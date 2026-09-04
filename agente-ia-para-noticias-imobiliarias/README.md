@@ -59,6 +59,13 @@ Abaixo estão apresentados o fluxo de validação end-to-end e a interface visua
 ![Sucesso no Cadastro de Lead](docs/assets/lead_form_success_1787773659143.png)
 ````
 
+#### 🎨 Protótipo Interativo & Design System (Figma)
+
+Para exploração interativa das telas, componentes em Dark Mode e fluxo de experiência do usuário (UX) direto no navegador:
+
+* 🎨 **Figma Community:** [Acessar Protótipo Interativo ImoveisAI no Figma](https://www.figma.com/community/file/1672672738080036230)
+* 📐 **Especificações Técnicas:** Consulte o arquivo [`DESIGN.md`](DESIGN.md) para tokens visuais, paleta de cores e tipografia.
+
 ### Papel de Cada Camada no Ecossistema
 *   **SPA Frontend (React 18 + Vite):** Interface responsiva, futurista em Dark Mode, dividida em quatro visualizações (Feed de Notícias, Fontes, Destinos e Configurações), integrada a um chat de IA interativo.
 *   **Backend API (FastAPI):** Orquestrador de requisições, responsável pelo recebimento de leads, validação via Pydantic v2 e comunicação declarativa com o banco de dados.
@@ -122,6 +129,8 @@ Para executar o sistema, configure as seguintes variáveis no arquivo `.env` na 
 ---
 
 ## 🚀 Como Executar Localmente
+
+> 🎨 **Prefere inspecionar o visual sem executar código?** Você pode navegar no [Protótipo Interativo no Figma Community](https://www.figma.com/community/file/1672672738080036230).
 
 ### Pré-requisitos
 *   **Docker & Docker Compose** instalados.
