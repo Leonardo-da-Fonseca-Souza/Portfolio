@@ -1,0 +1,87 @@
+# ==============================================================================
+# .gitignore - GCP Data Pipeline Monitoring & Agentic Observability
+# ==============================================================================
+
+# ── GCP Credentials & Private Keys ─────────────────────────────────────────
+*service-account*.json
+*service_account*.json
+client_secret*.json
+client_secrets*.json
+*credentials*.json
+application_default_credentials.json
+gcp-key*.json
+gcloud-*.json
+adc.json
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# ── Environment Variables ──────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+walkthrough.md
+
+# ── Python Virtual Environments & Caches ────────────────────────────────────
+venv/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# ── Frontend Dependencies, Builds & Bundlers ──────────────────────────────
+node_modules/
+dist/
+build/
+.next/
+out/
+.svelte-kit/
+.vite/
+.cache/
+.parcel-cache/
+.turbo/
+
+# ── OS & IDE Temporary Files ──────────────────────────────────────────────
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.idea/
+.vscode/settings.json
+.vscode/launch.json
+*.swp
+*.swo
+*~
+.gcpignore
+
+# ── Databases, Logs & Heavy Data Artifacts (FinOps Optimization) ───────────
+*.sqlite
+*.sqlite3
+*.db
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.parquet
+*.csv
+*.bin
+*.h5
+*.pkl
+*.tar.gz
+*.zip

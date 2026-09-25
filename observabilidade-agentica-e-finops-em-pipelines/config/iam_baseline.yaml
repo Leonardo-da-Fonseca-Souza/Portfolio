@@ -1,0 +1,27 @@
+version: "1.0"
+project: "gcp-pipeline-monitoring"
+
+baseline_policies:
+  - service_account: "sa-dataflow-worker@${GCP_PROJECT_ID}.iam.gserviceaccount.com"
+    allowed_roles:
+      - "roles/dataflow.worker"
+      - "roles/pubsub.subscriber"
+      - "roles/bigquery.dataEditor"
+    forbidden_roles:
+      - "roles/owner"
+      - "roles/editor"
+      - "roles/iam.securityAdmin"
+
+  - service_account: "sa-looker-analytics@${GCP_PROJECT_ID}.iam.gserviceaccount.com"
+    allowed_roles:
+      - "roles/bigquery.dataViewer"
+      - "roles/bigquery.jobUser"
+    forbidden_roles:
+      - "roles/bigquery.admin"
+      - "roles/editor"
+
+compliance_checks:
+  audit_logs_enabled: true
+  org_policy_location: "southamerica-east1"
+  vpc_sc_perimeter_active: true
+  cmek_configured: true

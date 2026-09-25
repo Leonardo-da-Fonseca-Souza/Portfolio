@@ -1,0 +1,25 @@
+tracing:
+  provider: opentelemetry
+  exporter: cloud_trace
+  sample_rate: 0.1
+
+metrics:
+  provider: cloud_monitoring
+  custom_metrics:
+    - name: dashboard/sse_connections_active
+      type: gauge
+      description: Número de conexões SSE abertas simultâneas
+    - name: dashboard/agent_execution_latency_ms
+      type: histogram
+      description: Latência de execução dos agentes por agent_id
+    - name: dashboard/api_errors_total
+      type: counter
+      labels: [endpoint, status_code]
+
+logging:
+  structured: true
+  fields:
+    - request_id
+    - project_id
+    - agent_id
+    - tab_context

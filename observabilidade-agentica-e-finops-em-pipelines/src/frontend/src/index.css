@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans;
+  }
+}
+
+.glass-panel {
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glow-blue {
+  box-shadow: 0 0 20px -5px rgba(59, 130, 246, 0.3);
+}
+
+.glow-purple {
+  box-shadow: 0 0 20px -5px rgba(147, 51, 234, 0.3);
+}
+
+.glow-emerald {
+  box-shadow: 0 0 20px -5px rgba(16, 185, 129, 0.3);
+}
+
+@keyframes pulse-flow {
+  0%, 100% { opacity: 0.4; stroke-dashoffset: 20; }
+  50% { opacity: 1; stroke-dashoffset: 0; }
+}
+
+.animate-pulse-flow {
+  stroke-dasharray: 6 6;
+  animation: pulse-flow 2s linear infinite;
+}
