@@ -4,8 +4,7 @@
 
 > **Plataforma Enterprise de Observabilidade em Tempo Real, Análise Causa-Raiz Agêntica (Google ADK / Gemini 2.0 Flash) e Otimização de Custos (FinOps) para Data Pipelines Streaming no Google Cloud Platform.**
 
-[![Figma Prototype](https://img.shields.io/badge/Figma-Protot%C3%ADpo%20UI%2FUX%20Community-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/community/file/1685391125984310509)
-🎨 **[Acessar Protótipo Interativo no Figma Community](https://www.figma.com/community/file/1685391125984310509)**
+[![Figma Prototype](https://img.shields.io/badge/Figma-Protot%C3%ADpo%20UI%2FUX-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/community/file/1685391125984310509)
 
 ---
 
