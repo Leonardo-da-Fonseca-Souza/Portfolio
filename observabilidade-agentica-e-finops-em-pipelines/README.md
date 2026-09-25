@@ -81,10 +81,14 @@ flowchart TD
 ### 🎬 Demonstração Visual & Execução
 
 <p align="center">
-  <img src="docs/assets/dashboard_demo.webp" alt="Demonstração do Dashboard de Observabilidade Agêntica e FinOps GCP" width="900" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);"/>
+  <img src="./docs/assets/dashboard_demo.webp" alt="Demonstração do Dashboard de Observabilidade Agêntica e FinOps GCP" width="900" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);"/>
   <br/>
   <em>Figura 1: Gravação funcional e visual do Dashboard navegando pelas abas de Visão Geral, Pipeline, FinOps, IAM Segurança e interagindo com o Copiloto Agêntico via Server-Sent Events (SSE).</em>
 </p>
+
+### 🎨 Protótipo UI/UX (Figma Community)
+O design system, componentes e a especificação visual de alta fidelidade das 4 abas foram desenvolvidos e disponibilizados publicamente:
+- 🔗 **Protótipo Interativo:** [Figma Community — GCP Pipeline Monitoring Dashboard](https://www.figma.com/community/file/1685391125984310509)
 
 ### 🔍 Descrição das Camadas do Sistema:
 1. **Camada de Apresentação (Frontend):** Interface de alta fidelidade desenvolvida em React 18, Vite e Tailwind CSS, operando com consumo de eventos SSE em tempo real, renderização de sparklines dinâmicos em SVG e gaveta interativa para o Agente RAG.
@@ -166,7 +170,7 @@ flowchart TD
 
 ## ⚙️ 5. Variáveis de Ambiente e Configuração (Sanitizadas)
 
-Crie um arquivo `.env` na raiz do projeto com base no arquivo [`.env.example`](file:///.env.example):
+Crie um arquivo `.env` na raiz do projeto com base no arquivo [`.env.example`](./.env.example):
 
 | Variável | Descrição | Valor de Exemplo Seguro |
 | :--- | :--- | :--- |
