@@ -209,10 +209,10 @@ cp .env.example .env
 docker-compose up --build
 ```
 
-Acesse no navegador:
-- **Frontend Dashboard:** [http://localhost:3000](http://localhost:3000)
-- **Backend Swagger Docs:** [http://localhost:8000/docs](http://localhost:8000/docs)
-- **Endpoint de Saúde:** [http://localhost:8000/health](http://localhost:8000/health)
+Acesse no navegador (após a inicialização local):
+- **Frontend Dashboard:** `http://localhost:3000`
+- **Backend Swagger Docs:** `http://localhost:8000/docs`
+- **Endpoint de Saúde:** `http://localhost:8000/health`
 
 ---
 
@@ -248,7 +248,7 @@ npm install
 # Executar o servidor de desenvolvimento Vite
 npm run dev
 ```
-* O frontend estará acessível em [http://localhost:5173](http://localhost:5173).
+* O frontend estará acessível localmente em `http://localhost:5173`.
 
 ---
 
