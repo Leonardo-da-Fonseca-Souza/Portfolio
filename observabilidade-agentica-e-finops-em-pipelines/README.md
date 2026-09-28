@@ -1,6 +1,6 @@
 # Observabilidade Agêntica, FinOps & Governança IAM em Pipelines de Dados GCP
 
-> **Plataforma Enterprise de Observabilidade em Tempo Real, Análise Causa-Raiz Agêntica (Google ADK / Gemini 2.0 Flash) e Otimização de Custos (FinOps) para Data Pipelines Streaming no Google Cloud Platform.**
+> **Plataforma Enterprise de Observabilidade em Tempo Real, Análise Causa-Raiz Agêntica (Google ADK / Gemini 3.5 Flash) e Otimização de Custos (FinOps) para Data Pipelines Streaming no Google Cloud Platform.**
 
 [![Figma Prototype](https://img.shields.io/badge/Figma-Protot%C3%ADpo%20UI%2FUX-F24E1E?style=for-the-badge&logo=figma&logoColor=white)](https://www.figma.com/community/file/1685391125984310509)
 
@@ -12,7 +12,7 @@ Este projeto consiste em um ecossistema completo de **Observabilidade Agêntica,
 
 ### 🎯 Objetivos de Negócio e Engenharia:
 - **Telemetria de Alta Frequência:** Monitoramento em tempo real de latência P99, vazão de eventos (130k+ events/s), backlog de mensagens no Pub/Sub e auto-scaling de vCPUs no Dataflow via Server-Sent Events (SSE).
-- **Análise Causa-Raiz Agêntica:** Copiloto de governança de IA baseado em **Google ADK (Agent Development Kit) e Supervisor Architecture (Gemini 2.0 Flash / 1.5 Pro)** que correlaciona picos de backlog, gargalos de escrita e limites de infraestrutura emitindo planos de remediação acionáveis com streaming de pensamento token-a-token.
+- **Análise Causa-Raiz Agêntica:** Copiloto de governança de IA baseado em **Google ADK (Agent Development Kit) e Supervisor Architecture (Gemini 3.5 Flash)** que correlaciona picos de backlog, gargalos de escrita e limites de infraestrutura emitindo planos de remediação acionáveis com streaming de pensamento token-a-token.
 - **Engenharia de FinOps & Otimização de Custos:** Identificação contínua de ineficiências em jobs do Dataflow (uso do Shuffle Service) e queries no BigQuery (particionamento por data e clustering), projetando economias superiores a **34% a 68%** nos custos operacionais diários.
 - **Auditoria de Segurança Zero-Trust & IAM:** Matriz de conformidade alinhada a baselines organizacionais GCP, validando permissões de Service Accounts, VPC Service Controls, Customer-Managed Encryption Keys (CMEK) e políticas de localização geográfica.
 
@@ -43,8 +43,8 @@ flowchart TD
     end
 
     subgraph Agentic_Layer["🤖 Governança Agêntica (Google ADK / LangGraph)"]
-        Supervisor["Pipeline Supervisor Agent (Gemini 2.0 Flash)"]
-        AnomalyAgent["Anomaly Correlator Agent (Gemini 1.5 Pro)"]
+        Supervisor["Pipeline Supervisor Agent (Gemini 3.5 Flash)"]
+        AnomalyAgent["Anomaly Correlator Agent (Gemini 3.5 Flash)"]
         FinOpsAgent["FinOps Optimizer Agent"]
         IAMAgent["IAM Audit Agent"]
     end
@@ -108,7 +108,7 @@ O design system, componentes e a especificação visual de alta fidelidade das 4
 | **Backend Framework** | **Python 3.11+ / FastAPI** | Gateway de API assíncrono com validação via Pydantic v2 e suporte a SSE Streaming. |
 | **Servidor de Aplicação**| **Uvicorn** | Servidor ASGI de altíssimo desempenho para Python assíncrono. |
 | **Governança Agêntica** | **Google ADK / LangGraph** | Arquitetura Supervisor/Workers para orquestração de múltiplos agentes de IA. |
-| **Modelos de Linguagem** | **Gemini 2.0 Flash / 1.5 Pro** | Raciocínio agêntico, streaming token-a-token e análise semântica de causa-raiz. |
+| **Modelos de Linguagem** | **Gemini 3.5 Flash** | Raciocínio agêntico, streaming token-a-token e análise semântica de causa-raiz. |
 | **Containerização** | **Docker & Docker Compose** | Empacotamento multi-stage (`Dockerfile.backend`, `Dockerfile.frontend`) e orquestração local. |
 | **Servidor Web / Proxy** | **Nginx Alpine** | Servidor de alta performance utilizado no container de produção do Frontend. |
 | **Testes & Qualidade** | **Pytest + PostCSS Build Check** | Suíte de testes unitários para o backend e compilação limpa do bundle frontend. |
@@ -182,8 +182,8 @@ Crie um arquivo `.env` na raiz do projeto com base no arquivo [`.env.example`](.
 | `BQ_DATASET_ID` | Dataset de destino no BigQuery | `pipeline_data` |
 | `BQ_TABLE_ID` | Tabela particionada de eventos | `events` |
 | `VERTEX_AI_LOCATION` | Região do serviço Vertex AI | `us-central1` |
-| `GEMINI_SUPERVISOR_MODEL` | Modelo LLM do Agente Orquestrador | `gemini-2.0-flash` |
-| `GEMINI_ANALYST_MODEL` | Modelo LLM dos Agentes Analistas | `gemini-1.5-pro` |
+| `GEMINI_SUPERVISOR_MODEL` | Modelo LLM do Agente Orquestrador | `gemini-3.5-flash` |
+| `GEMINI_ANALYST_MODEL` | Modelo LLM dos Agentes Analistas | `gemini-3.5-flash` |
 | `API_HOST` | Host de escuta do servidor FastAPI | `0.0.0.0` |
 | `API_PORT` | Porta de execução do Backend | `8000` |
 | `CORS_ORIGINS` | Origens permitidas para requisições cross-origin | `http://localhost:5173,http://localhost:3000` |
@@ -299,9 +299,12 @@ gcloud run deploy gcp-pipeline-frontend \
 
 ## 💼 Customização e Implementação Corporativa
 
+> **Nota de Arquitetura:** O presente repositório disponibiliza uma **versão funcional de demonstração** para validação de prototipação UI/UX, telemetria SSE e governança agêntica. A **versão corporativa completa**, contando com arquitetura de segurança **Zero-Trust** de ponta a ponta (VPC Service Controls, criptografia CMEK, matriz IAM de menor privilégio e auditoria contínua), é customizada e desenvolvida sob medida conforme os requisitos de compliance e infraestrutura da organização.
+
 Desenvolvo e integro engines personalizadas sob medida para operações corporativas, incluindo governança de dados, observabilidade agêntica em tempo real e otimização de infraestrutura em nuvem.
 
-https://www.linkedin.com/in/leonardo-da-fonseca-souza-49b8aa2b9
+🔗 **Contato Profissional & Networking:**  
+[LinkedIn — Leonardo da Fonseca Souza](https://www.linkedin.com/in/leonardo-da-fonseca-souza-49b8aa2b9)
 
 ---
 
