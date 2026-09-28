@@ -54,6 +54,7 @@ portfolio-[nome-do-produto]/
 | Projeto / Repositório | Descrição da Solução & UX | Protótipo & Design | Tecnologias Principais | Status |
 | :--- | :--- | :--- | :--- | :--- |
 | **[`agente-ia-para-noticias-imobiliarias`](./agente-ia-para-noticias-imobiliarias)** | Agente autônomo para curadoria, análise de sentimento e geração de boletins imobiliários em tempo real com visão panorâmica de dados. | [🎨 Protótipo Figma](https://www.figma.com/community/file/1672672738080036230) | FastAPI, React, LangGraph, MCP, Antigravity | 🟢 Concluído |
+| **[`observabilidade-agentica-e-finops-em-pipelines`](./observabilidade-agentica-e-finops-em-pipelines)** | Plataforma Enterprise de observabilidade em tempo real, análise causa-raiz agêntica e otimização de custos (FinOps) para data pipelines no GCP. | [🎨 Protótipo Figma](https://www.figma.com/community/file/1685391125984310509) | GCP, Dataflow, BigQuery, Google ADK, React | 🟢 Concluído |
 
 ---
 
